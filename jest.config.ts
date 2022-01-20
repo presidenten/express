@@ -29,8 +29,8 @@ export default {
     [
       path.resolve(__dirname, 'node_modules', 'jest-html-reporter'),
       {
-        pageTitle: 'Demo test Report',
-        outputPath: 'test-report.html',
+        pageTitle: 'Test Report',
+        outputPath: 'coverage/test-report.html',
       },
     ],
   ],
