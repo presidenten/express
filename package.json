@@ -1,0 +1,53 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "Small express server",
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "start": "NODE_ENV=dev ts-node src/index",
+    "dev": "NODE_ENV=dev nodemon --config restart.json",
+    "clean": "rimraf coverage dist",
+    "lint": "eslint . --ext .ts,.tsx",
+    "prebuild": "npm run lint",
+    "build": "tsc -p tsconfig.build.json",
+    "build:watch": "tsc -w -p tsconfig.build.json",
+    "test": "LOG_LEVEL=warn NODE_ENV=test jest",
+    "test:dev": "NODE_ENV=test jest --watchAll"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "module-alias": "^2.2.2",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/express": "^4.17.13",
+    "@types/jest": "^26.0.24",
+    "@types/node": "~14.14.45",
+    "@typescript-eslint/eslint-plugin": "~4.28.2",
+    "@typescript-eslint/parser": "~4.28.2",
+    "commander": "^8.3.0",
+    "dotenv": "^10.0.0",
+    "eslint": "~7.30.0",
+    "eslint-config-prettier": "~8.3.0",
+    "eslint-plugin-jest": "~24.3.6",
+    "jest": "^27.0.6",
+    "jest-html-reporter": "^3.4.1",
+    "nodemon": "^2.0.12",
+    "prettier": "~2.3.2",
+    "rimraf": "^3.0.2",
+    "supertest": "^6.1.5",
+    "ts-jest": "^27.0.3",
+    "ts-node": "^10.4.0",
+    "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^3.10.1",
+    "tslib": "^2.3.1",
+    "tsutils": "~3.21.0",
+    "typescript": "~4.3.5"
+  }
+}
