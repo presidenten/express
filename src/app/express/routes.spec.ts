@@ -4,6 +4,9 @@ import type { Server } from '@src/app/express/express';
 
 import helpers from '@src/app/helpers';
 import createServer from '@src/app/express/express';
+import config from '@src/app/config';
+
+const { username, password } = config;
 
 jest.mock('@src/app/helpers');
 
@@ -26,10 +29,10 @@ describe('routes', () => {
     it('should respond after time seconds', async () => {
       const time = 10;
 
-      const response = await request(express.app).get(`/wait/${time}`);
+      const response = await request(express.app).get(`/wait/${time}`).auth(username, password);
 
-      expect(helpers.sleep).toHaveBeenCalledWith(time*1000);
       expect(response.status).toBe(200);
+      expect(helpers.sleep).toHaveBeenCalledWith(time*1000);
     });
   });
 });
