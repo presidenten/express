@@ -11,9 +11,9 @@ const { shutdown } = createServer();
 if (process.env.NODE_ENV !== 'dev') {
   const signalTraps: NodeJS.Signals[] = ['SIGTERM', 'SIGINT', 'SIGUSR2'];
   signalTraps.forEach((type) => {
-    process.once(type, async () => {
+    process.once(type, () => {
       logger.info(`-- Received ${type} --`);
-      await shutdown();
+      shutdown();
     });
   });
 }
